@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>My Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RESTful DB App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <textarea id="insert-field" placeholder="Document to insert"></textarea>
-        <button id="insert-button">Insert</button>
-    </div>
-    <div>
-        <textarea id="search-field" placeholder="{}"></textarea>
-        <button id="search-button">Search</button>
-    </div>
+  <div>
+    <textarea id="insert-field" placeholder='Insert document: {"name": "Bob"}'></textarea>
+    <button id="insert-button">Insert</button>
+  </div>
 
-    <div>
-        result: <div id="result"></div>
-    </div>
+  <div>
+    <textarea id="search-field" placeholder='Search query: {"name": "Bob"}'></textarea>
+    <button id="search-button">Search</button>
+  </div>
+
+  <div>
+    <h3>Result:</h3>
+    <pre id="result"></pre>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

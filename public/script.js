@@ -1,22 +1,41 @@
-const searchField = document.getElementById('search-field')
-const insertField = document.getElementById('insert-field')
-const searchButton = document.getElementById('search-button')
-const insertButton = document.getElementById('insert-button')
-const resultDiv = document.getElementById('result')
+const insertField = document.getElementById("insert-field");
+const searchField = document.getElementById("search-field");
+const insertButton = document.getElementById("insert-button");
+const searchButton = document.getElementById("search-button");
+const resultDiv = document.getElementById("result");
 
-searchButton.addEventListener('click', () => {
-    fetch('/search?find=' + searchField.value)
-    .then(res => res.text())
-    .then(txt => {
-        resultDiv.innerText = txt
+insertButton.addEventListener("click", () => {
+  try {
+    const input = insertField.value.trim();  // trim whitespace
+    const doc = JSON.parse(input);  // parse safely
+    fetch('/insert', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(doc)
     })
-})
+    .then(res => res.json())
+    .then(data => {
+      resultDiv.textContent = JSON.stringify(data, null, 2);
+    });
+  } catch (e) {
+    resultDiv.textContent = "⚠️ Invalid JSON format! Please check your input.";
+  }
+});
 
-insertButton.addEventListener('click', () => {
-    fetch('/insert?doc=' + insertField.value)
-    .then(res => res.text())
-    .then(txt => {
-        resultDiv.innerText = txt
+searchButton.addEventListener("click", () => {
+  try {
+    const input = searchField.value.trim();
+    const query = JSON.parse(input);
+    fetch('/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(query)
     })
-})
-
+    .then(res => res.json())
+    .then(data => {
+      resultDiv.textContent = JSON.stringify(data.results, null, 2);
+    });
+  } catch (e) {
+    resultDiv.textContent = "⚠️ Invalid JSON format! Please check your input.";
+  }
+});

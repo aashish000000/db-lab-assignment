@@ -1,37 +1,27 @@
 body {
-    background-color: #345;
-    color: #ccc;
-}
-
-button {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16pt;
-    background-color: #456;
-    color: #ccc;
-    border-radius: 5px;
+    background: #222;
+    color: #eee;
+    font-family: sans-serif;
+    padding: 20px;
+  }
+  textarea {
     width: 100%;
-}
-
-button:hover {
-    background-color: #567;
-    cursor: pointer;
-}
-
-button:active {
-    background-color: #678;
-}
-
-textarea {
     font-family: monospace;
-    font-size: 16pt;
+    font-size: 16px;
+    height: 100px;
+  }
+  button {
     width: 100%;
-}
-
-div {
-    padding: 0.5em;
-    margin: 0.5em;
-}
-
-#result {
-    white-space: pre;
-}
+    padding: 10px;
+    margin: 10px 0;
+    background: #444;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  pre {
+    background: #333;
+    padding: 10px;
+    white-space: pre-wrap;
+  }
